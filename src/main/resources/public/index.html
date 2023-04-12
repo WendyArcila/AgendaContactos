@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+  <title>Nuevo Contacto</title>
+  <link rel="stylesheet" href="css/style.css" type="text/css" >
+</head>
+<body>
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-10 col-lg-7 col-xl-6">
+        <img src="img/img.png"
+             class="card-img-bottom" alt="Sample image">
+        <div class="table-responsive table-striped" id="listaPet"></div>
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form id="form">
+          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+            <h1>Nuevo contacto</h1>
+          </div>
+          <div class="form-group">
+            <label for="newName">Nombre</label>
+            <input type="text" class="form-control" id="newName" placeholder="Pepito Pérez">
+          </div>
+          <div>
+            <div class="form-group">
+              <label for="phone">Número de teléfono</label>
+              <input type="text" class="form-control" id="phone" placeholder="+57 300 000">
+            </div>
+            <div class="form-group">
+              <label for="email">Correo electrónico</label>
+              <input type="text" class="form-control" id="email" placeholder="pepito@123.com">
+            </div>
+            <div class="form-group">
+              <label for="birth">Fecha de nacimiento</label>
+              <input type="text" class="form-control" id="birth" placeholder="yyyy-mm-dd">
+            </div>
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button onclick="saveContact()" id="Guardar" type="submit" class="btn btn-primary btn-lg gradient-custom-2 mb-3"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem;">Guardar</button>
+            <button onclick="showContacts()" id="Consultar" type="button" class="btn btn-primary btn-lg gradient-custom-2 mb-3"
+                    style="padding-left: 2.5rem; padding-right: 2.5rem;">
+             Ver contactos
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col" >ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">Correo electrónico</th>
+          <th scope="col">Fecha de nacimiento</th>
+        </tr>
+      </thead>
+    <tbody id="contentTable">
+    </tbody></table>
+</section>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Actualizar contacto</h5>
+        <button onclick="closer()" type="button" id="closeModal"  class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="formUpdate">
+        <div class="form-group">
+          <label for="takeId">Id</label>
+          <input type="text" class="form-control" id="takeId">
+        </div>
+        <div class="form-group">
+          <label for="editName">Nombre</label>
+          <input type="text" class="form-control" id="editName">
+        </div>
+        <div>
+          <div class="form-group">
+            <label for="editPhone">Número de teléfono</label>
+            <input type="text" class="form-control" id="editPhone">
+          </div>
+          <div class="form-group">
+            <label for="editEmail">Correo electrónico</label>
+            <input type="text" class="form-control" id="editEmail">
+          </div>
+          <div class="form-group">
+            <label for="editBirth">Fecha de nacimiento</label>
+            <input type="text" class="form-control" id="editBirth">
+          </div>
+        </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button onclick="updateContact()" type="button" class="btn btn-primary">Guardar actualización</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/js.js"></script>
+</body>
+</html>
